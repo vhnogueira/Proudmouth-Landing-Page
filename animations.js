@@ -187,37 +187,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // FEATURE CARDS SECTION (Problem/Opportunity/Solution)
     // ============================================
 
-    // Detect if mobile device
-    const isMobile = window.innerWidth < 768;
-
-    // Feature cards - stagger animation (optimized for mobile)
+    // Feature cards - stagger animation
     gsap.from('.bg-white.border-2.border-proud-gray', {
         scrollTrigger: {
             trigger: '#packages',
             start: 'top 80%',
             toggleActions: 'play none none none'
         },
-        duration: isMobile ? 0.5 : 1,
-        y: isMobile ? 20 : 50,
+        duration: 1,
+        y: 50,
         opacity: 0,
-        stagger: isMobile ? 0.08 : 0.2,
+        stagger: 0.2,
         ease: 'power3.out'
     });
 
-    // Feature card icons - bounce in (simplified for mobile)
+    // Feature card icons - bounce in
     gsap.from('.bg-white.border-2.border-proud-gray svg', {
         scrollTrigger: {
             trigger: '#packages',
             start: 'top 80%',
             toggleActions: 'play none none none'
         },
-        duration: isMobile ? 0.4 : 0.8,
+        duration: 0.8,
         scale: 0,
-        rotation: isMobile ? 0 : 360,
+        rotation: 360,
         opacity: 0,
-        stagger: isMobile ? 0.08 : 0.2,
-        ease: isMobile ? 'power2.out' : 'back.out(2)',
-        delay: isMobile ? 0.1 : 0.3
+        stagger: 0.2,
+        ease: 'back.out(2)',
+        delay: 0.3
     });
 
     // ============================================
