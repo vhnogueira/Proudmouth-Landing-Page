@@ -200,12 +200,12 @@
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-4xl mx-auto text-center relative">
                 <!-- Testimonial Slider Container -->
-                <div class="testimonial-slider overflow-hidden">
-                    <div class="testimonial-track flex transition-transform duration-500 ease-in-out">
+                <div class="testimonial-slider overflow-hidden py-4">
+                    <div class="testimonial-track flex transition-transform duration-500 ease-in-out" style="min-height: 400px;">
 
                         <!-- Testimonial 1 -->
-                        <div class="testimonial-slide w-full flex-shrink-0">
-                            <div class="bg-white p-8 md:p-12 shadow-lg">
+                        <div class="testimonial-slide w-full flex-shrink-0 px-2">
+                            <div class="bg-white p-8 md:p-12 shadow-lg h-full flex flex-col justify-between">
                                 <svg class="w-12 h-12 text-proud-red mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                                 </svg>
@@ -222,8 +222,8 @@
                         </div>
 
                         <!-- Testimonial 2 -->
-                        <div class="testimonial-slide w-full flex-shrink-0">
-                            <div class="bg-white p-8 md:p-12 shadow-lg">
+                        <div class="testimonial-slide w-full flex-shrink-0 px-2">
+                            <div class="bg-white p-8 md:p-12 shadow-lg h-full flex flex-col justify-between">
                                 <svg class="w-12 h-12 text-proud-red mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                                 </svg>
@@ -240,8 +240,8 @@
                         </div>
 
                         <!-- Testimonial 3 -->
-                        <div class="testimonial-slide w-full flex-shrink-0">
-                            <div class="bg-white p-8 md:p-12 shadow-lg">
+                        <div class="testimonial-slide w-full flex-shrink-0 px-2">
+                            <div class="bg-white p-8 md:p-12 shadow-lg h-full flex flex-col justify-between">
                                 <svg class="w-12 h-12 text-proud-red mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                                 </svg>
@@ -260,13 +260,13 @@
                     </div>
                 </div>
 
-                <!-- Navigation Buttons -->
-                <button id="prev-testimonial" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white text-proud-red p-3 rounded-full shadow-lg hover:bg-proud-red hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-proud-red z-10">
+                <!-- Navigation Buttons - Hidden on mobile, visible on md and up -->
+                <button id="prev-testimonial" class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 bg-white text-proud-red p-3 rounded-full shadow-lg hover:bg-proud-red hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-proud-red z-10">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
-                <button id="next-testimonial" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white text-proud-red p-3 rounded-full shadow-lg hover:bg-proud-red hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-proud-red z-10">
+                <button id="next-testimonial" class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 bg-white text-proud-red p-3 rounded-full shadow-lg hover:bg-proud-red hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-proud-red z-10">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
@@ -640,6 +640,34 @@
                 nextTestimonial();
             }
         });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        sliderSection.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        sliderSection.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const difference = touchStartX - touchEndX;
+
+            if (Math.abs(difference) > swipeThreshold) {
+                if (difference > 0) {
+                    // Swipe left - next testimonial
+                    nextTestimonial();
+                } else {
+                    // Swipe right - previous testimonial
+                    prevTestimonial();
+                }
+            }
+        }
     </script>
 
 </body>
