@@ -279,21 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.7
     });
 
-    // Pricing buttons - scale in
-    gsap.from('#packages button', {
-        scrollTrigger: {
-            trigger: '#packages .grid',
-            start: 'top 75%',
-            toggleActions: 'play none none none'
-        },
-        duration: 0.8,
-        scale: 0.8,
-        opacity: 0,
-        stagger: 0.2,
-        ease: 'back.out(1.7)',
-        delay: 1.5
-    });
-
     // ============================================
     // FOOTER CTA SECTION ANIMATIONS
     // ============================================
