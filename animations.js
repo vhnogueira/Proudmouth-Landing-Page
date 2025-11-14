@@ -35,25 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 1
     });
 
-    // Hero CTA button - scale and fade in
-    gsap.from('#home a', {
-        duration: 0.8,
-        scale: 0.8,
-        opacity: 0,
-        ease: 'back.out(1.7)',
-        delay: 1.3
-    });
-
-    // Add a subtle float animation to the CTA button
-    gsap.to('#home a', {
-        y: -5,
-        duration: 1.5,
-        ease: 'power1.inOut',
-        repeat: -1,
-        yoyo: true,
-        delay: 2
-    });
-
     // ============================================
     // BENEFITS + FORM SECTION ANIMATIONS
     // ============================================
@@ -296,32 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
         stagger: 0.2,
         ease: 'power3.out',
         delay: 0.7
-    });
-
-    // Price numbers - counter animation
-    gsap.from('#packages .text-4xl', {
-        scrollTrigger: {
-            trigger: '#packages .grid',
-            start: 'top 75%',
-            toggleActions: 'play none none none'
-        },
-        duration: 1.5,
-        textContent: 0,
-        snap: { textContent: 1 },
-        stagger: 0.2,
-        ease: 'power2.out',
-        delay: 1.2,
-        onUpdate: function() {
-            // This creates a counting effect for the prices
-            const elements = document.querySelectorAll('#packages .text-4xl');
-            elements.forEach((el, index) => {
-                const prices = [1000, 1500, 2500];
-                const currentValue = Math.round(parseFloat(el.textContent) || 0);
-                if (currentValue !== prices[index]) {
-                    el.textContent = '$' + currentValue;
-                }
-            });
-        }
     });
 
     // Pricing buttons - scale in
