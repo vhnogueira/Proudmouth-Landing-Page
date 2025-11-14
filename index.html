@@ -198,20 +198,85 @@
     <!-- Testimonial Section -->
     <section class="bg-proud-mint py-16 md:py-20">
         <div class="container mx-auto px-4 lg:px-8">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="bg-white p-8 md:p-12 shadow-lg">
-                    <svg class="w-12 h-12 text-proud-red mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                    </svg>
+            <div class="max-w-4xl mx-auto text-center relative">
+                <!-- Testimonial Slider Container -->
+                <div class="testimonial-slider overflow-hidden">
+                    <div class="testimonial-track flex transition-transform duration-500 ease-in-out">
 
-                    <p class="text-lg md:text-xl text-gray-700 italic mb-6 leading-relaxed">
-                        "Working with ProudMouth has transformed our reach and credibility in the Canadian market. The access to their engaged community accelerated our growth beyond what we imagined possible."
-                    </p>
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-slide w-full flex-shrink-0">
+                            <div class="bg-white p-8 md:p-12 shadow-lg">
+                                <svg class="w-12 h-12 text-proud-red mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                </svg>
 
-                    <div class="border-t border-gray-200 pt-4">
-                        <p class="font-bold text-gray-800">Sarah Mitchell</p>
-                        <p class="text-sm text-gray-600">CEO, Innovation Consulting Inc.</p>
+                                <p class="text-lg md:text-xl text-gray-700 italic mb-6 leading-relaxed">
+                                    "Working with ProudMouth has transformed our reach and credibility in the Canadian market. The access to their engaged community accelerated our growth beyond what we imagined possible."
+                                </p>
+
+                                <div class="border-t border-gray-200 pt-4">
+                                    <p class="font-bold text-gray-800">Sarah Mitchell</p>
+                                    <p class="text-sm text-gray-600">CEO, Innovation Consulting Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide w-full flex-shrink-0">
+                            <div class="bg-white p-8 md:p-12 shadow-lg">
+                                <svg class="w-12 h-12 text-proud-red mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                </svg>
+
+                                <p class="text-lg md:text-xl text-gray-700 italic mb-6 leading-relaxed">
+                                    "Launching our podcast through ProudMouth gave us instant credibility. Within three months, we went from zero to 50,000 downloads per month. The community support is unmatched."
+                                </p>
+
+                                <div class="border-t border-gray-200 pt-4">
+                                    <p class="font-bold text-gray-800">Michael Chen</p>
+                                    <p class="text-sm text-gray-600">Founder, Tech Growth Strategies</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-slide w-full flex-shrink-0">
+                            <div class="bg-white p-8 md:p-12 shadow-lg">
+                                <svg class="w-12 h-12 text-proud-red mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                </svg>
+
+                                <p class="text-lg md:text-xl text-gray-700 italic mb-6 leading-relaxed">
+                                    "The visibility we gained through Canada's Entrepreneurs network has been phenomenal. Our brand authority skyrocketed, and we're now seen as industry leaders. Best investment we've made."
+                                </p>
+
+                                <div class="border-t border-gray-200 pt-4">
+                                    <p class="font-bold text-gray-800">Jennifer Davies</p>
+                                    <p class="text-sm text-gray-600">Director of Marketing, Summit Financial Group</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <button id="prev-testimonial" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white text-proud-red p-3 rounded-full shadow-lg hover:bg-proud-red hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-proud-red z-10">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button id="next-testimonial" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white text-proud-red p-3 rounded-full shadow-lg hover:bg-proud-red hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-proud-red z-10">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Indicator Dots -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-proud-red transition-all duration-300" data-index="0"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-index="1"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-index="2"></button>
                 </div>
             </div>
         </div>
@@ -505,6 +570,75 @@
             e.preventDefault();
             alert('Thank you for your application! We will be in touch soon.');
             applicationForm.reset();
+        });
+
+        // Testimonial Slider
+        let currentTestimonial = 0;
+        const testimonialTrack = document.querySelector('.testimonial-track');
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const prevButton = document.getElementById('prev-testimonial');
+        const nextButton = document.getElementById('next-testimonial');
+        const totalTestimonials = testimonialSlides.length;
+
+        function updateSlider() {
+            // Move the slider
+            testimonialTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+
+            // Update dots
+            testimonialDots.forEach((dot, index) => {
+                if (index === currentTestimonial) {
+                    dot.classList.remove('bg-gray-300', 'hover:bg-gray-400');
+                    dot.classList.add('bg-proud-red');
+                } else {
+                    dot.classList.remove('bg-proud-red');
+                    dot.classList.add('bg-gray-300', 'hover:bg-gray-400');
+                }
+            });
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            updateSlider();
+        }
+
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+            updateSlider();
+        }
+
+        // Event listeners for navigation buttons
+        nextButton.addEventListener('click', nextTestimonial);
+        prevButton.addEventListener('click', prevTestimonial);
+
+        // Event listeners for dots
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                updateSlider();
+            });
+        });
+
+        // Auto-advance slider every 5 seconds
+        let autoSlideInterval = setInterval(nextTestimonial, 5000);
+
+        // Pause auto-advance when user hovers over the slider
+        const sliderSection = document.querySelector('.testimonial-slider');
+        sliderSection.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        sliderSection.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(nextTestimonial, 5000);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevTestimonial();
+            } else if (e.key === 'ArrowRight') {
+                nextTestimonial();
+            }
         });
     </script>
 
