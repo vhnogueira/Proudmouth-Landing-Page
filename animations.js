@@ -190,8 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Feature cards - stagger animation
     gsap.from('.bg-white.border-2.border-proud-gray', {
         scrollTrigger: {
-            trigger: '#packages',
-            start: 'top 80%',
+            trigger: '#features',
+            start: 'top 95%',
             toggleActions: 'play none none none'
         },
         duration: 1,
@@ -204,8 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Feature card icons - bounce in
     gsap.from('.bg-white.border-2.border-proud-gray svg', {
         scrollTrigger: {
-            trigger: '#packages',
-            start: 'top 80%',
+            trigger: '#features',
+            start: 'top 95%',
             toggleActions: 'play none none none'
         },
         duration: 0.8,
