@@ -9,7 +9,7 @@
     />
     <title>ProudMouth - Blastoff Your Brand</title>
 
-    <!-- Google Fonts - Montserrat -->
+    <!-- Google Fonts - Montserrat with display=swap for better performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,34 +17,8 @@
       rel="stylesheet"
     />
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Tailwind Configuration -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "proud-red": "#ec202c",
-              "proud-navy": "#273249",
-              "proud-mint": "#bad7d9",
-              "proud-gray": "#F5F6F6",
-            },
-            fontFamily: {
-              sans: ["Montserrat", "ui-sans-serif", "system-ui"],
-            },
-          },
-        },
-      };
-    </script>
-
-    <style>
-      /* Custom styles for smooth scrolling and transitions */
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+    <!-- Tailwind CSS - Optimized Build -->
+    <link href="dist/output.css" rel="stylesheet" />
   </head>
   <body class="font-sans antialiased">
     <!-- Header/Navigation -->
@@ -58,6 +32,9 @@
             <img
               src="img/ProudMouth_WorkMark_Horizontal-sm.png"
               alt="ProudMouth Logo"
+              loading="lazy"
+              width="150"
+              height="30"
               class="h-4 md:h-5"
             />
           </div>
@@ -92,12 +69,13 @@
           </nav>
 
           <!-- Mobile Menu Button -->
-          <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+          <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false">
             <svg
               class="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 stroke-linecap="round"
@@ -149,7 +127,10 @@
       <div class="z-10 relative pt-6">
         <img
           src="img/ProudMouth_WorkMark_Horizontal-sm.png"
-          alt="ProudMouth Logo"
+          alt="ProudMouth - Blastoff Your Brand Logo"
+          fetchpriority="high"
+          width="200"
+          height="40"
           class="h-5 mx-auto d-block"
         />
       </div>
@@ -501,6 +482,7 @@
           <!-- Navigation Buttons - Hidden on mobile, visible on md and up -->
           <button
             id="prev-testimonial"
+            aria-label="Previous testimonial"
             class="hidden md:block absolute -left-16 lg:-left-20 top-1/2 -translate-y-1/2 bg-white text-proud-red p-3 rounded-full shadow-lg hover:bg-proud-red hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-proud-red z-10"
           >
             <svg
@@ -508,6 +490,7 @@
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 stroke-linecap="round"
@@ -519,6 +502,7 @@
           </button>
           <button
             id="next-testimonial"
+            aria-label="Next testimonial"
             class="hidden md:block absolute -right-16 lg:-right-20 top-1/2 -translate-y-1/2 bg-white text-proud-red p-3 rounded-full shadow-lg hover:bg-proud-red hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-proud-red z-10"
           >
             <svg
@@ -526,6 +510,7 @@
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 stroke-linecap="round"
@@ -537,18 +522,22 @@
           </button>
 
           <!-- Indicator Dots -->
-          <div class="flex justify-center mt-8 space-x-2">
+          <div class="flex justify-center mt-8 space-x-2" role="group" aria-label="Testimonial navigation">
             <button
               class="testimonial-dot w-3 h-3 rounded-full bg-proud-red transition-all duration-300"
               data-index="0"
+              aria-label="Go to testimonial 1"
+              aria-current="true"
             ></button>
             <button
               class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"
               data-index="1"
+              aria-label="Go to testimonial 2"
             ></button>
             <button
               class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"
               data-index="2"
+              aria-label="Go to testimonial 3"
             ></button>
           </div>
         </div>
@@ -828,6 +817,9 @@
             <img
               src="img/ProudMouth_WorkMark_Horizontal-sm.png"
               alt="ProudMouth Logo"
+              loading="lazy"
+              width="150"
+              height="30"
               class="h-8 mb-4 brightness-0 invert"
             />
             <p class="text-sm leading-relaxed">
@@ -996,21 +988,22 @@
       </div>
     </footer>
 
-    <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- GSAP Library - Deferred for better performance -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
-    <!-- GSAP Animations -->
-    <script src="animations.js"></script>
+    <!-- GSAP Animations - Deferred for better performance -->
+    <script src="animations.js" defer></script>
 
     <!-- Mobile Menu Toggle Script -->
-    <script>
+    <script defer>
       // Mobile menu toggle
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
 
       mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
+        const isExpanded = mobileMenu.classList.toggle("hidden");
+        mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
       });
 
       // Close mobile menu when clicking a link
@@ -1018,6 +1011,7 @@
       mobileMenuLinks.forEach((link) => {
         link.addEventListener("click", () => {
           mobileMenu.classList.add("hidden");
+          mobileMenuButton.setAttribute("aria-expanded", "false");
         });
       });
 
